@@ -7,7 +7,6 @@ class FortuneModel(models.Model):
   text = models.CharField(max_length=360, null=False, unique=True)
 
   def __str__(self):
-    return str('{text}',format(text=self.text))
     return str('{text} ({uuid})'.format(uuid=self.uuid, text=self.text))
 
 

@@ -10,6 +10,11 @@ class FortuneSerializer(ModelSerializer):
     new_fortune.save();
     return new_fortune
 
+  def update(self, instance, validated_data):
+    instance.text = validated_data.get('text', instance.text)
+    instance.save()
+    return instance
+
 
   class Meta:
     model = FortuneModel
